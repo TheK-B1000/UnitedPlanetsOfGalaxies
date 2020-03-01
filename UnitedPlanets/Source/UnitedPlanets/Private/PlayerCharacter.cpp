@@ -132,10 +132,12 @@ void APlayerCharacter::Attack()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Attacked"));
 	// If mesh are valid and have Animation Blueprint
-	if (GetMesh() && GetMesh()->GetAnimInstance() && WeaponProperties.GetMesh()EquipMontage;
+
+	// TODO - Fix ERROR
+	/* if (GetMesh() && GetMesh()->GetAnimInstance() && WeaponProperties.GetMesh()EquipMontage;
 	{
 		// Play mesh Equip Animation Blueprint
-	}
+	} */
 }
 
 void APlayerCharacter::Block()
