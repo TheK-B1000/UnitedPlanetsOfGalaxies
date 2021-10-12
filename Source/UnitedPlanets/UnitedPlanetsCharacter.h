@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "UnitedPlanetsCharacter.generated.h"
 
+class AGun; // Forward Declaring
+
 UCLASS(config=Game)
 class AUnitedPlanetsCharacter : public ACharacter
 {
@@ -21,6 +23,9 @@ class AUnitedPlanetsCharacter : public ACharacter
 public:
 	AUnitedPlanetsCharacter();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -30,6 +35,8 @@ public:
 	float BaseLookUpRate;
 
 protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
@@ -68,5 +75,15 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+private:
+	UPROPERTY(EditAnywhere)
+	float RotationRate = 10;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AGun> GunClass;
+
+	UPROPERTY()
+	AGun* Gun;
 };
 
