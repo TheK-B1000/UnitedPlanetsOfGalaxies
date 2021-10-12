@@ -77,6 +77,8 @@ public:
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
 private:
+	void Shoot();
+
 	UPROPERTY(EditAnywhere)
 	float RotationRate = 10;
 

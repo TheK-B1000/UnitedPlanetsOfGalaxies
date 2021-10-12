@@ -91,6 +91,9 @@ void AUnitedPlanetsCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AUnitedPlanetsCharacter::OnResetVR);
+
+	// Pull Trigger
+	PlayerInputComponent->BindAction("Shoot", IE_Pressed, this, &AUnitedPlanetsCharacter::Shoot);
 }
 
 
@@ -154,4 +157,9 @@ void AUnitedPlanetsCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void AUnitedPlanetsCharacter::Shoot()
+{
+	Gun->PullTrigger();
 }
