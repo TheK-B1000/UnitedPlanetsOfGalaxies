@@ -14,4 +14,6 @@ class UNITEDPLANETS_API AUPGAIController : public AAIController
 {
 	GENERATED_BODY()
 	
+protected:
+	virtual void BeginPlay() override;
 };
