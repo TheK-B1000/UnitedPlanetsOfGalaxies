@@ -71,6 +71,7 @@ float AUnitedPlanetsCharacter::TakeDamage(float DamageAmount, struct FDamageEven
 	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	DamageToApply = FMath::Min(Health, DamageToApply);
 	Health -= DamageToApply;
+	UE_LOG(LogTemp, Warning, TEXT("Health left %f"), Health);
 
 	return DamageToApply;
 }
