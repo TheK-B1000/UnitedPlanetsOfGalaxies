@@ -9,10 +9,6 @@ void AUPGAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//declarations:
-		APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-
-	SetFocus(PlayerPawn);
 }
 
 void AUPGAIController::Tick(float DeltaSeconds)
@@ -22,5 +18,14 @@ void AUPGAIController::Tick(float DeltaSeconds)
 	//declarations:
 		APawn* PlayerPawn = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
 
-	MoveToActor(PlayerPawn, 200.f);
-}
+	if (LineOfSightTo(PlayerPawn))
+	{
+		SetFocus(PlayerPawn);
+		MoveToActor(PlayerPawn, AcceptanceRadius);
+	}
+	else
+	{
+		ClearFocus(EAIFocusPriority::Gameplay);
+		StopMovement();
+	}
+}	
