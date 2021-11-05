@@ -16,4 +16,6 @@ class UNITEDPLANETS_API AUPGAIController : public AAIController
 	
 protected:
 	virtual void BeginPlay() override;
+
+	virtual void Tick(float DeltaSeconds) override;
 };
