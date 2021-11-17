@@ -131,6 +131,11 @@ void AUnitedPlanetsCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVecto
 		StopJumping();
 }
 
+float AUnitedPlanetsCharacter::GetHealthPercent() const
+{
+	return Health / MaxHealth;
+}
+
 void AUnitedPlanetsCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
