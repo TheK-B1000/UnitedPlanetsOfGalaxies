@@ -84,3 +84,6 @@ Content/StarterContent/*
 VSCode Files
 /.vscode/*
 
+*.uasset
+*.uasset
+*.umap
