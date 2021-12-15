@@ -87,3 +87,6 @@ VSCode Files
 *.uasset
 *.uasset
 *.umap
+*.FBX
+*.tga
+*.HDR
